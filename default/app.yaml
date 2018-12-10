@@ -1,0 +1,29 @@
+runtime: python27
+api_version: 1
+threadsafe: true
+
+instance_class: B1
+
+basic_scaling:
+  max_instances: 1
+  idle_timeout: 5m
+
+# List libraries used by this service which are bundled in the GAE runtime
+# Non-bundled libraries need to go into requirements.txt and installed in lib,
+# see appengine_config.py for details.
+libraries:
+- name: flask
+  version: "0.12"
+
+# Set any environment variables here
+# format: ENV_VAR: 'xys'
+env_variables:
+
+handlers:
+- url: /favicon\.jpg
+  static_files: favicon.jpg
+  upload: favicon\.jpg
+
+- url: /.*
+  script: no_frontend.app
+  login: admin

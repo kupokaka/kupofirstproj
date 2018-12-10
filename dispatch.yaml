@@ -1,0 +1,3 @@
+dispatch:
+ - url: "*/csv/*"
+   service: loadcsv-service
